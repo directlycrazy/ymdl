@@ -5,6 +5,7 @@ Use the module to create an mp3 file with metadata
 */
 
 const ymdl = require('../index.js');
+const fs = require('fs');
 const { exec } = require('child_process');
 
 var artist = 'ARTIST';
