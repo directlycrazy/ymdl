@@ -12,8 +12,8 @@ let ymdl = {};
  */
 ymdl.search = (artist, name) => {
   return new Promise((res, rej) => {
-    if (!artist) return rej('Missing artist name');
-    if (!name) return rej('Missing song name');
+    if (!artist || !artist instanceof String) return rej('Missing artist name');
+    if (!name || !name instanceof String) return rej('Missing song name');
 
     axios.get(`https://api.deezer.com/search?limit=15&q=${artist} ${name}`).then((data) => {
       if (!data) return rej('Something went wrong fetching the data');
@@ -45,9 +45,9 @@ ymdl.search = (artist, name) => {
  */
 ymdl.download = (artist, name, path) => {
   return new Promise((res, rej) => {
-    if (!artist) return rej('Missing artist name');
-    if (!name) return rej('Missing song name');
-    if (!path) return rej('Missing file path');
+    if (!artist || !artist instanceof String) return rej('Missing artist name');
+    if (!name || !name instanceof String) return rej('Missing song name');
+    if (!path || !path instanceof String) return rej('Missing file path');
 
     ymdl.search(artist, name).then(async (search) => {
       const yt_results = await ytsr(search.artist.name + ' ' + search.title + ' lyrics');
