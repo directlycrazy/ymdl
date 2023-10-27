@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/directlycrazy/ymdl#readme",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "child_process": "^1.0.2",
     "ytdl-core": "^4.11.0",
     "ytsr": "^3.7.0"
